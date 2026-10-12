@@ -1,0 +1,11 @@
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
+PLAN.md
+
+# Reused source data from a private workspace (licence unclear): never committed.
+# data/get_data.py copies and verifies it.
+data/raw/
+
+# Local build helpers (notebook builders, number checks, skill test staging)
+_build/
