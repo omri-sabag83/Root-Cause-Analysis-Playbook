@@ -23,6 +23,7 @@ SOURCE = Path(os.environ.get(
 # file name -> SHA-256. Modules add their files here as they are built.
 FILES = {
     "E01_Flare_Assignment_Data.xlsx": "1fff15683398a6c3d5921be756fc941f3e4783540f438e2354684acb985cd5fb",
+    "E04_AlignedUp_Assignment_Data.csv": "c5bfd03b06eaa57d748c836dea42a9becf5327b4d3f89cbb49f80ed6ab8d828e",
 }
 
 

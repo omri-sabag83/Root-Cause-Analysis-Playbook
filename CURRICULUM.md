@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜` **25% complete (3/12 modules)**
+`🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜` **33% complete (4/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -33,7 +33,7 @@ Both are referenced here and not repeated.
 | 1 | DMAIC: the Structure of a Root-Cause Project | DMAIC spine | 🟩 Completed | 2026-10-12 |
 | 2 | Pareto Analysis | DMAIC: Define | 🟩 Completed | 2026-10-13 |
 | 3 | Timeline & Events-and-Causal-Factors Reconstruction | DMAIC: Measure | 🟩 Completed | 2026-10-13 |
-| 4 | Change Analysis & Kepner-Tregoe "Is / Is-Not" | DMAIC: Measure → Analyze | ⬜ Not started | |
+| 4 | Change Analysis & Kepner-Tregoe "Is / Is-Not" | DMAIC: Measure → Analyze | 🟩 Completed | 2026-10-13 |
 | 5 | The 5 Whys | DMAIC: Analyze | ⬜ Not started | |
 | 6 | Fishbone (Ishikawa) Diagram | DMAIC: Analyze | ⬜ Not started | |
 | 7 | Apollo Root Cause Analysis & Cause Mapping | DMAIC: Analyze | ⬜ Not started | |
@@ -291,28 +291,47 @@ happened, in what order?"
 asking what changed at that boundary).
 
 **Concepts**
-- Kepner-Tregoe problem analysis: specifying the problem on four dimensions
-  (what, where, when, extent), each as "is" vs. "could be but is not"
+- Kepner-Tregoe problem analysis (from Charles Kepner and Benjamin Tregoe's
+  work on management decisions): specifying the problem on four dimensions
+  (what, where, when, extent), each as "is" vs. "could be, but is not"
 - Distinctions: what is true only on the "is" side
 - Changes: what changed in, on, or around each distinction, and when
-- Testing a possible cause: it must explain both the "is" and the "is not"
-- Change analysis as a stand-alone technique: comparing the problem situation
-  with a similar situation that had no problem
+- Testing a possible cause: it must explain both the "is" and the "is not";
+  a cause that explains the problem but also predicts problems that never
+  happened is rejected
+- Change analysis as a stand-alone technique: comparing the problem
+  situation with a similar situation that had no problem
 
 **Why it matters**
 The "is not" column is the strongest elimination tool in RCA. It kills causes
 that explain the problem but also predict problems that never happened.
 
 **Worked example**
-The E04 activation cliff, recomputed (reuse). Only one funnel step broke, on
-one calendar date, the same across every segment: a textbook is / is-not
-pattern, done unnamed.
+The E04 activation cliff (a take-home exercise with artificial data, 24,436
+product events, 1 Dec 2025 to 25 Jan 2026), recomputed. It was a textbook
+is / is-not case, done unnamed:
+- **What:** only the `share_room` event fell (85% fewer per day); every other
+  event, room creation included, held up.
+- **Where:** every segment fell together.
+- **When:** a calendar date, 12 Jan. Even long-standing users stopped
+  sharing that day.
+- **Testing the causes:** six candidate causes are tested against the
+  is / is-not table. The original analysis left two open: the share action broke, or
+  only its tracking event broke. A check the original recommended but never
+  ran settles it: buyers kept viewing new rooms after 12 Jan at the same
+  rate, so rooms were still being shared, and only the tracking event broke.
 
-**Exercise type:** to be set when the module is built.
+**Resources**
+- [Kepner-Tregoe Matrix](https://digital.ahrq.gov/health-it-tools-and-resources/evaluation-resources/workflow-assessment-health-it-toolkit/all-workflow-tools/kepner-tregoe-matrix)
+  (U.S. Agency for Healthcare Research and Quality, ~5 min, verified): the
+  is / is-not columns, the distinction step, and testing each cause against
+  every observation.
+
+**Exercise type:** test a teammate's proposed cause against the is / is-not
+table. Fully worked.
 
 **Interview angle:** "The metric dropped for some users but not others. How
 do you narrow it down?"
-
 ---
 
 ## <u>Module 5 — The 5 Whys</u>

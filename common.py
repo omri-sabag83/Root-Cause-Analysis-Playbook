@@ -1,6 +1,7 @@
 """Shared loaders, chart settings and table printing for every module.
 
 load_e01()  the E01 funnel data (one row per lead), as used in Modules 1 and 11
+load_e04()  the E04 product event log, as used in Module 4
 show()      print a table with text columns left-aligned, numbers right-aligned
 """
 from pathlib import Path
@@ -56,6 +57,13 @@ def load_e01_reference() -> pd.DataFrame:
     for col in block.columns[1:]:
         block[col] = pd.to_numeric(block[col])
     return block.reset_index(drop=True)
+
+
+def load_e04() -> pd.DataFrame:
+    """E04 product event log (one row per event), as used in Module 4. day = calendar date of the event."""
+    df = pd.read_csv(_need("E04_AlignedUp_Assignment_Data.csv"), parse_dates=["event_timestamp", "created_date"])
+    df["day"] = df["event_timestamp"].dt.normalize()
+    return df
 
 
 def simulate_incidents(seed: int = 2026) -> pd.DataFrame:
