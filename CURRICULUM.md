@@ -24,14 +24,14 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜` **8% complete (1/12 modules)**
+`🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜` **17% complete (2/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
 | # | Module | Segment / DMAIC phase | Status | Completed On |
 |---|--------|-----------------------|--------|---------------|
 | 1 | DMAIC: the Structure of a Root-Cause Project | DMAIC spine | 🟩 Completed | 2026-10-12 |
-| 2 | Pareto Analysis | DMAIC: Define | ⬜ Not started | |
+| 2 | Pareto Analysis | DMAIC: Define | 🟩 Completed | 2026-10-13 |
 | 3 | Timeline & Events-and-Causal-Factors Reconstruction | DMAIC: Measure | ⬜ Not started | |
 | 4 | Change Analysis & Kepner-Tregoe "Is / Is-Not" | DMAIC: Measure → Analyze | ⬜ Not started | |
 | 5 | The 5 Whys | DMAIC: Analyze | ⬜ Not started | |
@@ -177,15 +177,15 @@ in conversion." / "How would you make sure it doesn't happen again?"
 **DMAIC phase:** Define (choosing which problem deserves a project).
 
 **Concepts**
-- The Pareto principle (the "80/20 rule": a few categories account for most of
-  the effect) as an empirical pattern to check, not a law
-- The Pareto chart: categories sorted by size, bars plus a cumulative-share
-  line, and the "vital few" cut
+- The Pareto chart: categories sorted from largest to smallest, bars plus a
+  cumulative-share line, and the "vital few" categories that carry most of
+  the effect
+- The Pareto principle (the "80/20 rule") as a rule of thumb to check, not a
+  law
 - Counting the right thing: a Pareto by number of incidents and a Pareto by
-  impact (time lost, users affected, money) can rank the same causes
-  differently
-- Category granularity: categories that are too broad or too fine hide the
-  real concentration; "other" buckets
+  impact (time lost by users) can rank the same causes very differently
+- One huge incident can put a category on top of an impact Pareto; check the
+  largest single incident before choosing
 - Second-level (nested) Pareto: drilling into the top bar
 - Before-and-after Pareto: checking a fix by re-running the chart
 
@@ -195,16 +195,36 @@ the one where a fix removes the most pain, and it is the usual first chart in
 a DMAIC Define phase.
 
 **Worked example**
-Fresh, simulated: twelve months of incidents on a data platform, each with a
-category, minutes to resolve and users affected. It is simulated because the
-lesson needs a known case where the count ranking and the impact ranking
-disagree. Sidebar: the E02 loss Pareto, already done unnamed.
+Fresh, simulated: one year of incidents on a company's data platform (649
+incidents), with cause, minutes to resolve and users affected. It is
+simulated because the lesson needs a known case where the count ranking and
+the impact ranking disagree. Jan–Jun is used to choose a project, Jul–Dec to
+check the fix:
+- By count, late upstream files are the top cause (39.8% of incidents).
+- By impact, upstream schema changes are (71.8% of user-hours lost, from
+  8.2% of incidents).
+- A nested Pareto inside schema changes points at renamed columns. After a
+  fix from 1 Jul, renamed-column incidents fall from 12 to 2, though the
+  untargeted kinds fall too.
+- The Jul–Dec impact Pareto has a new top category, mostly one incident,
+  though that kind of incident happened in both halves.
 
-**Exercise type:** to be set when the module is built.
+Sidenote: the E02 margin investigation (an earlier exercise), which used a
+loss Pareto without naming it.
+
+**Resources**
+- [Pareto chart](https://en.wikipedia.org/wiki/Pareto_chart) (Wikipedia,
+  ~5 min, verified): the chart, its cumulative line, and its place among the
+  seven basic tools of quality.
+- [Pareto principle](https://en.wikipedia.org/wiki/Pareto_principle)
+  (Wikipedia, ~10 min, verified): origin (Vilfredo Pareto, 1906), Joseph
+  Juran's "vital few", and why 80/20 is a rule of thumb, not a law.
+
+**Exercise type:** pick the project when the goal changes from user pain to
+on-call workload. Fully worked.
 
 **Interview angle:** "You have 400 open bugs and capacity to fix 20. Which
 ones?"
-
 ---
 
 ## <u>Module 3 — Timeline & Events-and-Causal-Factors Reconstruction</u>
@@ -230,7 +250,7 @@ causes.
 Fresh and real: Cloudflare's published postmortem of its 2 July 2019 global
 outage, which has a minute-by-minute timeline. It teaches sequence logic
 better than any earlier internal case. The URL and numbers are verified at
-build time. Sidebar: the cutover date of the E12 NYC 311 relabel.
+build time. Sidenote: the cutover date of the E12 NYC 311 relabel.
 
 **Exercise type:** to be set when the module is built.
 

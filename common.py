@@ -58,6 +58,48 @@ def load_e01_reference() -> pd.DataFrame:
     return block.reset_index(drop=True)
 
 
+def simulate_incidents(seed: int = 2026) -> pd.DataFrame:
+    """SIMULATED: one year (2025) of incidents on a company's data platform (Modules 2 and 10).
+
+    One row per incident: date, cause category, sub-cause, minutes to resolve, users affected,
+    minutes to detect. Every number below is a chosen example, picked so that the most
+    frequent cause is not the most costly one. Planted fix: from 1 Jul a schema check stops
+    most renamed-column incidents.
+    """
+    import numpy as np
+    rng = np.random.default_rng(seed)
+    # category: (incidents per year, median minutes to resolve, median users affected, median minutes to detect)
+    spec = {
+        "Late upstream file": (240, 30, 20, 20),
+        "Failed scheduled job": (160, 20, 10, 10),
+        "Permission error": (80, 15, 5, 30),
+        "Dashboard bug": (60, 60, 40, 240),
+        "Bad data (duplicates, nulls)": (40, 90, 120, 600),
+        "Upstream schema change": (48, 240, 250, 180),
+        "Other": (30, 30, 20, 60),
+        "Warehouse outage": (4, 180, 800, 5),
+    }
+    schema_types = {"Column renamed": 0.65, "Column type changed": 0.2, "Column dropped": 0.15}
+    days = pd.date_range("2025-01-01", "2025-12-31", freq="D")
+    rows = []
+    for cat, (per_year, m_min, m_users, m_detect) in spec.items():
+        for day in days:
+            for _ in range(rng.poisson(per_year / len(days))):
+                sub = ""
+                if cat == "Upstream schema change":
+                    sub = rng.choice(list(schema_types), p=list(schema_types.values()))
+                    if sub == "Column renamed" and day >= pd.Timestamp("2025-07-01") and rng.random() < 0.8:
+                        continue  # the planted fix catches it before it becomes an incident
+                rows.append({"date": day, "category": cat, "sub_cause": sub,
+                             "minutes_to_resolve": round(rng.lognormal(np.log(m_min), 0.6)),
+                             "users_affected": max(1, round(rng.lognormal(np.log(m_users), 0.5))),
+                             "minutes_to_detect": round(rng.lognormal(np.log(m_detect), 0.5))})
+    df = pd.DataFrame(rows).sort_values("date").reset_index(drop=True)
+    df.insert(0, "incident_id", range(1, len(df) + 1))
+    df["user_hours_lost"] = df["minutes_to_resolve"] / 60 * df["users_affected"]
+    return df
+
+
 def show(df: pd.DataFrame, index: bool = False) -> None:
     """Print a table with text columns left-aligned and numeric columns right-aligned."""
     import re

@@ -12,6 +12,7 @@ The program, progress table and per-module detail are in
 | # | Notebook | Topic | Segment / phase |
 |---|----------|-------|-----------------|
 | 1 | `01_dmaic.ipynb` | DMAIC: the structure of a root-cause project | DMAIC spine |
+| 2 | `02_pareto.ipynb` | Pareto analysis: choosing which problem gets a project | DMAIC: Define |
 
 Related repos: [A/B Testing Playbook](https://github.com/omri-sabag83/A-B-Testing-Playbook),
 [Product Analytics Playbook](https://github.com/omri-sabag83/Product-Analytics-Playbook),
