@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜` **17% complete (2/12 modules)**
+`🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜` **25% complete (3/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -32,7 +32,7 @@ Both are referenced here and not repeated.
 |---|--------|-----------------------|--------|---------------|
 | 1 | DMAIC: the Structure of a Root-Cause Project | DMAIC spine | 🟩 Completed | 2026-10-12 |
 | 2 | Pareto Analysis | DMAIC: Define | 🟩 Completed | 2026-10-13 |
-| 3 | Timeline & Events-and-Causal-Factors Reconstruction | DMAIC: Measure | ⬜ Not started | |
+| 3 | Timeline & Events-and-Causal-Factors Reconstruction | DMAIC: Measure | 🟩 Completed | 2026-10-13 |
 | 4 | Change Analysis & Kepner-Tregoe "Is / Is-Not" | DMAIC: Measure → Analyze | ⬜ Not started | |
 | 5 | The 5 Whys | DMAIC: Analyze | ⬜ Not started | |
 | 6 | Fishbone (Ishikawa) Diagram | DMAIC: Analyze | ⬜ Not started | |
@@ -233,30 +233,56 @@ ones?"
 asking why).
 
 **Concepts**
-- The timeline as the first fact base of an incident: every event, its
-  timestamp, its source, and how certain it is
-- Events-and-causal-factors (E&CF) charting: the primary chain of events,
-  the conditions around each event, and the causal factors (the events or
-  conditions without which the outcome would not have happened)
-- Time to detect, time to mitigate, time to resolve
-- Ordering pitfalls: clock skew, logging delay, and "after" read as "because"
+- The timeline as the first fact base of an incident: every event with its
+  time, its source, and how sure we are of it (stated, derived, recalled, or
+  no time)
+- The key durations: time to detect, time to diagnose, time to mitigate,
+  time to recover fully
+- Events-and-causal-factors (E&CF) charting: the chain of events in time
+  order, the conditions that made each event possible, and the causal
+  factors: the events or conditions without which the outcome would not have
+  happened, or would have been much smaller
+- Conditions often predate the incident window by weeks; a timeline that
+  starts at the first alert misses them
+- Ordering pitfalls: the order a report tells events in is not the order
+  they happened; "after" is not "because"; an "event" can be a phase, not a
+  single moment
 
 **Why it matters**
 Arguments about causes often turn out to be arguments about order. A timeline
-built from timestamped evidence settles the order before anyone argues about
-causes.
+built from timestamped evidence settles the order, and the durations show
+where the time was really lost, before anyone argues about causes.
 
 **Worked example**
 Fresh and real: Cloudflare's published postmortem of its 2 July 2019 global
-outage, which has a minute-by-minute timeline. It teaches sequence logic
-better than any earlier internal case. The URL and numbers are verified at
-build time. Sidenote: the cutover date of the E12 NYC 311 relabel.
+outage (a firewall rule with a runaway regular expression took down most of
+its traffic for 27 minutes). Chosen because it publishes exact timestamps and
+an honest list of contributing conditions:
+- The timeline is rebuilt from the post's own timestamps, and it reproduces
+  the post's 27 minutes (13:42 deploy to 14:09 recovery).
+- The four standard durations show where the time went: 3 minutes to
+  detect, 15 to diagnose, 9 to mitigate, 70 to recover fully.
+- The E&CF chart links each event to the conditions behind it, including a
+  CPU protection removed weeks before the incident.
 
-**Exercise type:** to be set when the module is built.
+Sidenote: the E12 NYC 311 investigation (an earlier exercise) dated a label
+change to 29 July, but an independent check found it was phased from 1 June: an event
+that was really a phase.
+
+**Resources**
+- [Details of the Cloudflare outage on July 2, 2019](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/)
+  (Cloudflare Blog, 2019, ~25 min, verified): the source of this module's
+  worked example.
+- [DOE-STD-1197-2024, Causal Analysis](https://www.energy.gov/documents/doe-std-1197-2024-finalpdf)
+  (U.S. Department of Energy, 2024, PDF, ~15 min for the E&CF charting
+  section, verified): how E&CF charts show the conditions and events needed
+  for an incident.
+
+**Exercise type:** mark how sure each number in the postmortem is (stated,
+derived, recalled, or no time). Fully worked.
 
 **Interview angle:** "Tell me about an incident you investigated: what
 happened, in what order?"
-
 ---
 
 ## <u>Module 4 — Change Analysis & Kepner-Tregoe "Is / Is-Not"</u>
