@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜` **42% complete (5/12 modules)**
+`🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜` **50% complete (6/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -35,7 +35,7 @@ Both are referenced here and not repeated.
 | 3 | Timeline & Events-and-Causal-Factors Reconstruction | DMAIC: Measure | 🟩 Completed | 2026-10-13 |
 | 4 | Change Analysis & Kepner-Tregoe "Is / Is-Not" | DMAIC: Measure → Analyze | 🟩 Completed | 2026-10-13 |
 | 5 | The 5 Whys | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
-| 6 | Fishbone (Ishikawa) Diagram | DMAIC: Analyze | ⬜ Not started | |
+| 6 | Fishbone (Ishikawa) Diagram | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 7 | Apollo Root Cause Analysis & Cause Mapping | DMAIC: Analyze | ⬜ Not started | |
 | 8 | Fault Tree Analysis | DMAIC: Analyze | ⬜ Not started | |
 | 9 | Barrier Analysis | DMAIC: Improve | ⬜ Not started | |
@@ -381,26 +381,42 @@ at "human error". Fully worked.
 **DMAIC phase:** Analyze (listing candidate causes with breadth).
 
 **Concepts**
-- The diagram: the problem as the head, cause categories as bones, causes
-  and sub-causes as branches
-- Category sets: the 6 Ms (Method, Machine, Material, Man/People,
-  Measurement, Mother Nature/Environment) and a data-and-product adaptation
-- The fishbone as a hypothesis inventory: every bone is something to test,
+- The diagram (Kaoru Ishikawa, popularised in the 1960s): the problem as the
+  head, cause categories as bones, causes and sub-causes as branches
+- Category sets: the manufacturing "Ms" (Manpower, Machine, Material, Method,
+  Measurement, often extended with Mother Nature and others), and a
+  data-and-product adaptation (customer, product use, support, commercial,
+  time, measurement)
+- The fishbone as a hypothesis inventory: every branch is something to test,
   not a finding
-- Scoring each bone by the evidence once tested
+- Scoring each branch by the evidence once tested, and correcting for testing
+  many branches at once
 
 **Why it matters**
 A fishbone protects against the most common investigation error: testing
 only the first cause anyone thought of.
 
 **Worked example**
-The E08 churn exercise, recomputed (reuse). Each bone is scored by its test,
-in an honest case where the fishbone ends with "no validated driver".
+The E08 churn exercise (a take-home exercise with artificial data: 500
+accounts, 22.0% flagged as churned), recomputed (reuse). 22 candidate causes
+on five bones, each tested, plus checks of the churn label on a sixth:
+- No customer, product, support or commercial branch clears its significance
+  bar once the number of tests is accounted for.
+- The measurement bone holds the real finding: the tables disagree on who
+  churned at all.
 
-**Exercise type:** to be set when the module is built.
+An honest case where the fishbone ends with "no validated driver", and the
+measurement bone explains why.
+
+**Resources**
+- [Ishikawa diagram](https://en.wikipedia.org/wiki/Ishikawa_diagram)
+  (Wikipedia, ~10 min, verified): the diagram, its origin, and the category
+  sets used in manufacturing, marketing and services.
+
+**Exercise type:** decide whether the lowest p-value is a driver, given how
+many branches were tested. Fully worked.
 
 **Interview angle:** "How do you make sure you haven't missed a cause?"
-
 ---
 
 ## <u>Module 7 — Apollo Root Cause Analysis & Cause Mapping</u>

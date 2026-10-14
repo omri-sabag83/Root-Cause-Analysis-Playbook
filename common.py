@@ -2,6 +2,7 @@
 
 load_e01()  the E01 funnel data (one row per lead), as used in Modules 1 and 11
 load_e04()  the E04 product event log, as used in Module 4
+load_e08()  the five E08 tables (accounts, subscriptions, usage, tickets, churn events), Module 6
 show()      print a table with text columns left-aligned, numbers right-aligned
 """
 from pathlib import Path
@@ -64,6 +65,14 @@ def load_e04() -> pd.DataFrame:
     df = pd.read_csv(_need("E04_AlignedUp_Assignment_Data.csv"), parse_dates=["event_timestamp", "created_date"])
     df["day"] = df["event_timestamp"].dt.normalize()
     return df
+
+
+def load_e08() -> dict:
+    """The five E08 tables, by short name. Dates are parsed."""
+    base = "E08_Ravenstack_Data/ravenstack_"
+    dates = {"accounts": ["signup_date"], "subscriptions": ["start_date", "end_date"], "feature_usage": ["usage_date"],
+             "support_tickets": ["submitted_at", "closed_at"], "churn_events": ["churn_date"]}
+    return {k: pd.read_csv(_need(f"{base}{k}.csv"), parse_dates=v) for k, v in dates.items()}
 
 
 def simulate_incidents(seed: int = 2026) -> pd.DataFrame:
