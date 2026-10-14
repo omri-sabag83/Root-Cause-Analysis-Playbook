@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜` **33% complete (4/12 modules)**
+`🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜` **42% complete (5/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -34,7 +34,7 @@ Both are referenced here and not repeated.
 | 2 | Pareto Analysis | DMAIC: Define | 🟩 Completed | 2026-10-13 |
 | 3 | Timeline & Events-and-Causal-Factors Reconstruction | DMAIC: Measure | 🟩 Completed | 2026-10-13 |
 | 4 | Change Analysis & Kepner-Tregoe "Is / Is-Not" | DMAIC: Measure → Analyze | 🟩 Completed | 2026-10-13 |
-| 5 | The 5 Whys | DMAIC: Analyze | ⬜ Not started | |
+| 5 | The 5 Whys | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 6 | Fishbone (Ishikawa) Diagram | DMAIC: Analyze | ⬜ Not started | |
 | 7 | Apollo Root Cause Analysis & Cause Mapping | DMAIC: Analyze | ⬜ Not started | |
 | 8 | Fault Tree Analysis | DMAIC: Analyze | ⬜ Not started | |
@@ -340,11 +340,12 @@ do you narrow it down?"
 
 **Concepts**
 - Asking "why?" until the answer is a cause that can be acted on (five is a
-  rule of thumb, not a rule), with an origin in Toyota's production system
+  rule of thumb, not a rule), with an origin at Toyota (Sakichi Toyoda;
+  Taiichi Ohno made it part of the Toyota Production System)
 - Each "why" answered with evidence, not opinion
 - Known failure modes: one chain when there are several causes, stopping at a
   symptom or at "human error", answers that cannot be checked, and different
-  teams reaching different chains
+  people reaching different chains
 - When the 5 Whys is enough, and when to move to a fishbone or a cause map
 
 **Why it matters**
@@ -352,14 +353,27 @@ It is the most widely used RCA technique and the most often criticised. A
 learner should be able to use it well and also say exactly where it breaks.
 
 **Worked example**
-Fresh, simulated: a revenue dashboard down 18%. Each "why" is answered by a
-query on the data, and a second, equally valid chain shows the branch the
-first chain missed. It is simulated so that the two planted causes are known.
+Fresh, simulated: an online store's revenue dashboard down 17.8% week over
+week. It is simulated so that the two planted causes are known.
+- The first chain of whys, each answered by a query, follows the biggest
+  fall to Android: a new app version cannot take two card types.
+- That chain explains only about half of the drop. A second chain, starting
+  from a different first answer, finds the rest: a store moved to a new id
+  that the dashboard does not know.
+- A money waterfall splits the 16,788 drop between the two causes.
 
-**Exercise type:** to be set when the module is built.
+**Resources**
+- [Five whys](https://en.wikipedia.org/wiki/Five_whys) (Wikipedia, ~10 min,
+  verified): the method, its origin at Toyota, and its known criticisms.
+- [The problem with "5 whys"](https://psnet.ahrq.gov/issue/problem-5-whys)
+  (U.S. Agency for Healthcare Research and Quality, a summary of Alan Card's
+  2017 critique in BMJ Quality & Safety, ~5 min, verified): why the method
+  oversimplifies problems with several causes.
+
+**Exercise type:** ask the next "why" on the second chain, and avoid stopping
+at "human error". Fully worked.
 
 **Interview angle:** "What are the limits of the 5 Whys?"
-
 ---
 
 ## <u>Module 6 — Fishbone (Ishikawa) Diagram</u>

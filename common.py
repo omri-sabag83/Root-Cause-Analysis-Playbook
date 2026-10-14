@@ -108,6 +108,51 @@ def simulate_incidents(seed: int = 2026) -> pd.DataFrame:
     return df
 
 
+def simulate_checkouts(seed: int = 2026) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """SIMULATED: six weeks of checkout attempts at an online store (Module 5), and the
+    dashboard's store list.
+
+    One row per checkout attempt: date, platform, app version, store, amount, status
+    (completed / failed), error code. Every number is a chosen example. Two causes are
+    planted from the week of 9 Mar 2026:
+      A. Android app version 4.2 (from Mon 9 Mar) makes most card payments of one card
+         type fail with error "card_type_unsupported".
+      B. Store 7 moves to a new store id, 14, on Wed 11 Mar; the dashboard's store list
+         is not updated, so store 14's orders drop out of the dashboard.
+    """
+    import numpy as np
+    rng = np.random.default_rng(seed)
+    STORE_P = [0.0725] * 6 + [0.13] + [0.0725] * 6  # store 7 is the largest store
+    days = pd.date_range("2026-02-02", "2026-03-15", freq="D")
+    rows = []
+    for day in days:
+        for _ in range(rng.poisson(210)):
+            platform = rng.choice(["web", "ios", "android"], p=[0.35, 0.25, 0.40])
+            version = ""
+            if platform != "web":
+                version = "4.1"
+                if platform == "android" and day >= pd.Timestamp("2026-03-09") and rng.random() < 0.85:
+                    version = "4.2"
+            store = int(rng.choice(range(1, 14), p=STORE_P))
+            if store == 7 and day >= pd.Timestamp("2026-03-11"):
+                store = 14
+            card = rng.choice(["visa", "mastercard", "amex"], p=[0.55, 0.30, 0.15])
+            fail_p = 0.04
+            error = ""
+            status = "completed"
+            if version == "4.2" and card != "visa":
+                fail_p = 0.70
+            if rng.random() < fail_p:
+                status = "failed"
+                error = "card_type_unsupported" if (version == "4.2" and card != "visa") else rng.choice(["card_declined", "timeout"])
+            rows.append({"date": day, "platform": platform, "app_version": version, "store_id": store, "card": card,
+                         "amount": round(float(rng.lognormal(np.log(60), 0.5)), 2), "status": status, "error_code": error})
+    att = pd.DataFrame(rows)
+    att.insert(0, "attempt_id", range(1, len(att) + 1))
+    stores = pd.DataFrame({"store_id": range(1, 14), "store_name": [f"Store {i}" for i in range(1, 14)]})
+    return att, stores
+
+
 def show(df: pd.DataFrame, index: bool = False) -> None:
     """Print a table with text columns left-aligned and numeric columns right-aligned."""
     import re

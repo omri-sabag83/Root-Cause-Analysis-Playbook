@@ -15,6 +15,7 @@ The program, progress table and per-module detail are in
 | 2 | `02_pareto.ipynb` | Pareto analysis: choosing which problem gets a project | DMAIC: Define |
 | 3 | `03_timeline.ipynb` | Timeline and events-and-causal-factors reconstruction | DMAIC: Measure |
 | 4 | `04_is_is_not.ipynb` | Change analysis and Kepner-Tregoe "is / is-not" | DMAIC: Measure → Analyze |
+| 5 | `05_five_whys.ipynb` | The 5 Whys: two chains, two causes | DMAIC: Analyze |
 
 Related repos: [A/B Testing Playbook](https://github.com/omri-sabag83/A-B-Testing-Playbook),
 [Product Analytics Playbook](https://github.com/omri-sabag83/Product-Analytics-Playbook),
