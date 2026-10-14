@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜` **50% complete (6/12 modules)**
+`🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜` **58% complete (7/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -36,7 +36,7 @@ Both are referenced here and not repeated.
 | 4 | Change Analysis & Kepner-Tregoe "Is / Is-Not" | DMAIC: Measure → Analyze | 🟩 Completed | 2026-10-13 |
 | 5 | The 5 Whys | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 6 | Fishbone (Ishikawa) Diagram | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
-| 7 | Apollo Root Cause Analysis & Cause Mapping | DMAIC: Analyze | ⬜ Not started | |
+| 7 | Apollo Root Cause Analysis & Cause Mapping | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 8 | Fault Tree Analysis | DMAIC: Analyze | ⬜ Not started | |
 | 9 | Barrier Analysis | DMAIC: Improve | ⬜ Not started | |
 | 10 | FMEA (Failure Mode and Effects Analysis) | DMAIC: Control | ⬜ Not started | |
@@ -424,30 +424,50 @@ many branches were tested. Fully worked.
 **DMAIC phase:** Analyze (causes as a graph, each backed by evidence).
 
 **Concepts**
-- Apollo RCA (Dean Gano's method): every effect has at least one action-type
-  cause and one condition-type cause, acting together
-- Cause-and-effect chains that branch and join, rather than one line of
+- Apollo RCA (Dean Gano's method, described in his book *Apollo Root Cause
+  Analysis*): every effect has at least two causes acting together, an
+  action (something that happened) and a condition (something that was
+  true)
+- Cause-and-effect charts that branch and join, rather than one line of
   "whys"
-- Evidence attached to every box, and boxes with no evidence marked as such
-- Solutions placed at any box in the map, not only at the "root"
-- Cause mapping (ThinkReliability's variant): starting from the impact on
-  goals
+- Evidence attached to every cause, and causes with no evidence marked as
+  such
+- Solutions placed at any cause in the chart, not only at the "root": often
+  the cheapest fix is at the condition
+- Cause mapping (ThinkReliability's variant): starting from the impact on a
+  goal
 
 **Why it matters**
 Real incidents usually need several causes at once. A map shows which
-combination was needed, so a fix can target the cheapest cause in the
-combination.
+combination was needed, so a fix can target the cause in the combination that
+is easiest to change.
 
 **Worked example**
-The E09 / E12 NYC 311 investigation (reuse). Several causes were at work at
-once: a mid-year relabel, closure rates measured at unequal age, and a real
-rise in housing complaints. NYC 311 is open data, re-fetched from NYC Open
-Data.
+The E09 / E12 NYC 311 investigation (reuse), on public data re-fetched from
+NYC Open Data and frozen. An August 2026 report on 311 service requests had
+three alarming headlines, and each turns out to need its own pair of causes:
+- **A water-and-sewer "surge":** a July label change at the
+  Department of Environmental Protection (DEP), combined with a report that
+  counts labels separately.
+- **A closure-rate "collapse":** a young month compared with an old one,
+  combined with requests that keep closing for weeks.
+- **A rise in housing requests:** more were filed, but the condition behind
+  it is unknown, and the map marks it as missing evidence.
 
-**Exercise type:** to be set when the module is built.
+**Resources**
+- [Apollo Root Cause Analysis](https://realitycharting.com/apollo-root-cause-analysis-problem-solving-methodology)
+  (Reality Charting, ~5 min, verified): the method's four steps, from the
+  company Dean Gano founded. The actions-and-conditions principle is in his
+  book, not on this page.
+- [Cause Mapping](https://www.thinkreliability.com/cause-mapping/)
+  (ThinkReliability, ~5 min, verified): the cause-mapping variant, which
+  starts from the goal that was hurt and looks for several causes working
+  together.
+
+**Exercise type:** place a manager's claim on the cause map and check it
+against the evidence. Fully worked.
 
 **Interview angle:** "What if there's more than one root cause?"
-
 ---
 
 ## <u>Module 8 — Fault Tree Analysis</u>

@@ -3,6 +3,7 @@
 load_e01()  the E01 funnel data (one row per lead), as used in Modules 1 and 11
 load_e04()  the E04 product event log, as used in Module 4
 load_e08()  the five E08 tables (accounts, subscriptions, usage, tickets, churn events), Module 6
+load_nyc311()  the frozen NYC 311 aggregates (data/fetch_nyc311.py), Module 7
 show()      print a table with text columns left-aligned, numbers right-aligned
 """
 from pathlib import Path
@@ -73,6 +74,17 @@ def load_e08() -> dict:
     dates = {"accounts": ["signup_date"], "subscriptions": ["start_date", "end_date"], "feature_usage": ["usage_date"],
              "support_tickets": ["submitted_at", "closed_at"], "churn_events": ["churn_date"]}
     return {k: pd.read_csv(_need(f"{base}{k}.csv"), parse_dates=v) for k, v in dates.items()}
+
+
+def load_nyc311() -> dict:
+    """The frozen NYC 311 aggregates, by file name (without .csv), plus the manifest."""
+    import json
+    folder = RAW / "nyc311"
+    if not (folder / "manifest.json").exists():
+        raise FileNotFoundError("Run `python data/fetch_nyc311.py` first (see its docstring).")
+    out = {p.stem: pd.read_csv(p) for p in sorted(folder.glob("*.csv"))}
+    out["manifest"] = json.loads((folder / "manifest.json").read_text())
+    return out
 
 
 def simulate_incidents(seed: int = 2026) -> pd.DataFrame:
