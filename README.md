@@ -21,6 +21,7 @@ The program, progress table and per-module detail are in
 | 8 | `08_fault_tree.ipynb` | Fault tree analysis: a tree's prediction checked against a run log exposes a hidden common cause | DMAIC: Analyze |
 | 9 | `09_barrier_analysis.ipynb` | Barrier analysis: every defence in a real outage marked worked, failed or missing, and matched to the fix list | DMAIC: Improve |
 | 10 | `10_fmea.ipynb` | FMEA: ratings from incident data, the RPN checked against the real loss, Action Priority and a control plan | DMAIC: Control |
+| 11 | `11_8d.ipynb` | 8D: Module 1's incident rerun with containment, the escape point and systemic prevention, compared with DMAIC | Competing approach |
 
 Related repos: [A/B Testing Playbook](https://github.com/omri-sabag83/A-B-Testing-Playbook),
 [Product Analytics Playbook](https://github.com/omri-sabag83/Product-Analytics-Playbook),

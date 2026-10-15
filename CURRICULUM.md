@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜` **83% complete (10/12 modules)**
+`🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜` **92% complete (11/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -40,7 +40,7 @@ Both are referenced here and not repeated.
 | 8 | Fault Tree Analysis | DMAIC: Analyze | 🟩 Completed | 2026-10-15 |
 | 9 | Barrier Analysis | DMAIC: Improve | 🟩 Completed | 2026-10-15 |
 | 10 | FMEA (Failure Mode and Effects Analysis) | DMAIC: Control | 🟩 Completed | 2026-10-15 |
-| 11 | 8D (Eight Disciplines) | Competing approach | ⬜ Not started | |
+| 11 | 8D (Eight Disciplines) | Competing approach | 🟩 Completed | 2026-10-16 |
 | 12 | Capstone: the `investigator` Skill and its test | Capstone | ⬜ Not started | |
 
 ---
@@ -625,9 +625,21 @@ choosing one on purpose.
 
 **Worked example**
 The E01 funnel drop again (reuse), deliberately: the same incident run through
-8D gives a like-for-like comparison with Module 1's DMAIC version.
+8D gives a like-for-like comparison with Module 1's DMAIC version. 8D adds
+containment (each incident day cost 54.7 closed-won deals on average), the escape
+point (no daily monitor of the traffic mix), and prevention across every
+campaign.
 
-**Exercise type:** to be set when the module is built.
+**Resources**
+- [8D: Eight Disciplines of Problem Solving](https://quality-one.com/8d/)
+  (Quality-One, ~10 min, verified): every step from D0 to D8, including the
+  escape point and systemic prevention.
+- [The History of the Eight Disciplines Problem Solving (8D)](https://www.allaboutlean.com/8d-history/)
+  (Christoph Roser, AllAboutLean, ~5 min, verified): Ford's 1987 manual and
+  how D0 was added in the 1990s.
+
+**Exercise type:** the first evening of the incident: what the data already
+showed, and what to do first. Fully worked.
 
 **Interview angle:** "Your customers are seeing wrong numbers right now. What
 do you do first?"
