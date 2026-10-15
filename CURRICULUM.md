@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜` **75% complete (9/12 modules)**
+`🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜` **83% complete (10/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -39,7 +39,7 @@ Both are referenced here and not repeated.
 | 7 | Apollo Root Cause Analysis & Cause Mapping | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 8 | Fault Tree Analysis | DMAIC: Analyze | 🟩 Completed | 2026-10-15 |
 | 9 | Barrier Analysis | DMAIC: Improve | 🟩 Completed | 2026-10-15 |
-| 10 | FMEA (Failure Mode and Effects Analysis) | DMAIC: Control | ⬜ Not started | |
+| 10 | FMEA (Failure Mode and Effects Analysis) | DMAIC: Control | 🟩 Completed | 2026-10-15 |
 | 11 | 8D (Eight Disciplines) | Competing approach | ⬜ Not started | |
 | 12 | Capstone: the `investigator` Skill and its test | Capstone | ⬜ Not started | |
 
@@ -574,9 +574,18 @@ DMAIC loop.
 **Worked example**
 Fresh, simulated: an FMEA for the data platform from Module 2. Occurrence is
 rated from the incident-log frequencies and Detection from the logged
-time-to-detect, so the ratings come from data, not opinion.
+time-to-detect, so the ratings come from data, not opinion. Checked against
+the real loss, the RPN ranks the warehouse outage last although it is the
+second-largest loss. Action Priority marks it High.
 
-**Exercise type:** to be set when the module is built.
+**Resources**
+- [How to Perform FMEA: Methodology and Worked Examples](https://reliamag.com/guides/how-to-perform-fmea/)
+  (Reliable Media, ~20 min, verified): the steps, the S/O/D scales, the RPN's
+  problems and Action Priority (described, not reproduced: the official table
+  is in the AIAG-VDA handbook).
+
+**Exercise type:** re-rate a failure mode after a fix, and check whether its
+Action Priority changes. Fully worked.
 
 **Interview angle:** "How do you prioritise which risks to monitor?"
 

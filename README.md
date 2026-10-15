@@ -20,6 +20,7 @@ The program, progress table and per-module detail are in
 | 7 | `07_cause_mapping.ipynb` | Apollo root cause analysis and cause mapping: every effect needs an action and a condition | DMAIC: Analyze |
 | 8 | `08_fault_tree.ipynb` | Fault tree analysis: a tree's prediction checked against a run log exposes a hidden common cause | DMAIC: Analyze |
 | 9 | `09_barrier_analysis.ipynb` | Barrier analysis: every defence in a real outage marked worked, failed or missing, and matched to the fix list | DMAIC: Improve |
+| 10 | `10_fmea.ipynb` | FMEA: ratings from incident data, the RPN checked against the real loss, Action Priority and a control plan | DMAIC: Control |
 
 Related repos: [A/B Testing Playbook](https://github.com/omri-sabag83/A-B-Testing-Playbook),
 [Product Analytics Playbook](https://github.com/omri-sabag83/Product-Analytics-Playbook),
