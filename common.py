@@ -174,6 +174,30 @@ def simulate_checkouts(seed: int = 2026) -> tuple[pd.DataFrame, pd.DataFrame]:
     return att, stores
 
 
+def simulate_report_runs(seed: int = 2026) -> pd.DataFrame:
+    """SIMULATED: one year (2025) of a daily KPI email's run log (Module 8).
+
+    One row per day: did the source file arrive on time, did each of the two nightly data
+    loads (primary and backup) succeed, did the scheduler start the report, did the mail
+    server send it, and what the email's outcome was (sent fresh / sent stale / not sent).
+    Every rate below is a chosen example. Planted common cause: both loads read the same
+    source file, so on a day the file is late, both loads fail.
+    """
+    import numpy as np
+    rng = np.random.default_rng(seed)
+    days = pd.date_range("2025-01-01", "2025-12-31", freq="D")
+    n = len(days)
+    file_late = rng.random(n) < 0.04
+    primary_fail = file_late | (rng.random(n) < 0.06)
+    backup_fail = file_late | (rng.random(n) < 0.05)
+    scheduler_fail = rng.random(n) < 0.015
+    mail_fail = rng.random(n) < 0.01
+    email = np.where(scheduler_fail | mail_fail, "not sent", np.where(primary_fail & backup_fail, "sent, stale", "sent, fresh"))
+    return pd.DataFrame({"date": days, "source_file_on_time": ~file_late, "primary_load_ok": ~primary_fail,
+                         "backup_load_ok": ~backup_fail, "scheduler_ok": ~scheduler_fail, "mail_ok": ~mail_fail,
+                         "email": email})
+
+
 def show(df: pd.DataFrame, index: bool = False) -> None:
     """Print a table with text columns left-aligned and numeric columns right-aligned."""
     import re

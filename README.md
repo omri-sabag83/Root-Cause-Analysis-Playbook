@@ -18,6 +18,7 @@ The program, progress table and per-module detail are in
 | 5 | `05_five_whys.ipynb` | The 5 Whys: two chains, two causes | DMAIC: Analyze |
 | 6 | `06_fishbone.ipynb` | Fishbone (Ishikawa): every candidate cause listed, tested and scored | DMAIC: Analyze |
 | 7 | `07_cause_mapping.ipynb` | Apollo root cause analysis and cause mapping: every effect needs an action and a condition | DMAIC: Analyze |
+| 8 | `08_fault_tree.ipynb` | Fault tree analysis: a tree's prediction checked against a run log exposes a hidden common cause | DMAIC: Analyze |
 
 Related repos: [A/B Testing Playbook](https://github.com/omri-sabag83/A-B-Testing-Playbook),
 [Product Analytics Playbook](https://github.com/omri-sabag83/Product-Analytics-Playbook),

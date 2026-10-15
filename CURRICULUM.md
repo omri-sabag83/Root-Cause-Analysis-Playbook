@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜` **58% complete (7/12 modules)**
+`🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜` **67% complete (8/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -37,7 +37,7 @@ Both are referenced here and not repeated.
 | 5 | The 5 Whys | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 6 | Fishbone (Ishikawa) Diagram | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 7 | Apollo Root Cause Analysis & Cause Mapping | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
-| 8 | Fault Tree Analysis | DMAIC: Analyze | ⬜ Not started | |
+| 8 | Fault Tree Analysis | DMAIC: Analyze | 🟩 Completed | 2026-10-15 |
 | 9 | Barrier Analysis | DMAIC: Improve | ⬜ Not started | |
 | 10 | FMEA (Failure Mode and Effects Analysis) | DMAIC: Control | ⬜ Not started | |
 | 11 | 8D (Eight Disciplines) | Competing approach | ⬜ Not started | |
@@ -485,14 +485,26 @@ against the evidence. Fully worked.
 **Why it matters**
 Fault tree analysis turns "it failed because A or B, but only if C" into
 arithmetic. It shows which single failures can cause the problem alone, which
-is where redundancy pays off.
+is where redundancy (a backup) pays off.
 
 **Worked example**
 Fresh, simulated: a daily KPI (Key Performance Indicator) email that is not
 sent or is stale, over a 365-day run log. The analytic top-event probability
-is checked against the simulated frequency.
+is checked against the simulated frequency. The prediction comes out far too
+low, and the gap leads to a hidden common cause: both of the report's data
+loads read the same source file.
 
-**Exercise type:** to be set when the module is built.
+**Resources**
+- [Fault Tree Handbook with Aerospace Applications](https://extapps.ksc.nasa.gov/reliability/Documents/Fault_Tree_Handbook_with_Aerospace_Applications_August_2002.pdf)
+  (NASA, 2002, verified): the standard reference. Read sections 3.8 (cut
+  sets), 5.2 (common cause failures), 7.3 (top event probability), and 9.2–9.3
+  (fault trees for a system in design vs. one already running).
+- [Intro to Fault Tree Analysis](https://accendoreliability.com/intro-to-fault-tree-analysis/)
+  (Accendo Reliability, ~5 min, verified): a short overview of the approach.
+
+**Exercise type:** rank three fixes by the failure days each would have
+saved, and compare with what the tree as designed would have said. Fully
+worked.
 
 **Interview angle:** "How would you make a daily report more reliable?"
 
