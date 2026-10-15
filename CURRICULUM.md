@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜` **67% complete (8/12 modules)**
+`🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜` **75% complete (9/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -38,7 +38,7 @@ Both are referenced here and not repeated.
 | 6 | Fishbone (Ishikawa) Diagram | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 7 | Apollo Root Cause Analysis & Cause Mapping | DMAIC: Analyze | 🟩 Completed | 2026-10-14 |
 | 8 | Fault Tree Analysis | DMAIC: Analyze | 🟩 Completed | 2026-10-15 |
-| 9 | Barrier Analysis | DMAIC: Improve | ⬜ Not started | |
+| 9 | Barrier Analysis | DMAIC: Improve | 🟩 Completed | 2026-10-15 |
 | 10 | FMEA (Failure Mode and Effects Analysis) | DMAIC: Control | ⬜ Not started | |
 | 11 | 8D (Eight Disciplines) | Competing approach | ⬜ Not started | |
 | 12 | Capstone: the `investigator` Skill and its test | Capstone | ⬜ Not started | |
@@ -517,8 +517,10 @@ worked.
 **Concepts**
 - Hazard, target, barrier: what can do harm, what it harms, and what stands
   in between
-- Barrier types: physical, administrative (procedures), and detection
-  (monitoring)
+- Prevention barriers (before the hazard) vs. recovery barriers (after it,
+  limiting the harm)
+- Barrier types: physical (in software: technical), administrative
+  (procedures), and detection (monitoring)
 - Barrier states: present and worked, present but failed, missing
 - The "Swiss cheese" model: an incident needs the holes in several layers to
   line up
@@ -528,11 +530,21 @@ Cause-finding asks why the problem happened. Barrier analysis asks why
 nothing stopped it, and so leads straight to what to build.
 
 **Worked example**
-Fresh and real: GitLab's published postmortem of its 31 January 2017 database
-incident, in which several backup and replication barriers all failed. The
-numbers and URL are verified at build time.
+Fresh and real: GitLab's published postmortem (a company's own public
+write-up of an incident) of its 31 January 2017 database incident, in which
+several backup and replication barriers all failed. Only 1 of its 11
+barriers worked, and it was not built as a backup. The company's own fix list is
+matched against the barrier table.
 
-**Exercise type:** to be set when the module is built.
+**Resources**
+- [Postmortem of database outage of January 31](https://about.gitlab.com/blog/postmortem-of-database-outage-of-january-31/)
+  (GitLab Blog, 2017, ~20 min, verified): the worked example's source.
+- [Human error: models and management](https://pmc.ncbi.nlm.nih.gov/articles/PMC1117770/)
+  (James Reason, BMJ 2000, ~10 min, verified): the original short paper on
+  the Swiss cheese model.
+
+**Exercise type:** count the fixes that repair prevention vs. recovery
+barriers, and judge the company's choice. Fully worked.
 
 **Interview angle:** "The fix is in. How do you make sure it can't happen
 again?"
