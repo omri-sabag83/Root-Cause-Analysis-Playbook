@@ -24,7 +24,7 @@ Both are referenced here and not repeated.
 
 ## Progress
 
-`🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜` **92% complete (11/12 modules)**
+`🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` **100% complete (12/12 modules)**
 
 ⬜ Not started · 🟨 In progress · 🟩 Completed
 
@@ -41,7 +41,7 @@ Both are referenced here and not repeated.
 | 9 | Barrier Analysis | DMAIC: Improve | 🟩 Completed | 2026-10-15 |
 | 10 | FMEA (Failure Mode and Effects Analysis) | DMAIC: Control | 🟩 Completed | 2026-10-15 |
 | 11 | 8D (Eight Disciplines) | Competing approach | 🟩 Completed | 2026-10-16 |
-| 12 | Capstone: the `investigator` Skill and its test | Capstone | ⬜ Not started | |
+| 12 | Capstone: the `investigator` Skill and its test | Capstone | 🟩 Completed | 2026-10-18 |
 
 ---
 
@@ -147,7 +147,7 @@ The E01 funnel drop (a take-home exercise with artificial data, 8,766 starters,
   form) and sits in one campaign's mobile traffic, and a rate-vs-mix
   split (did each segment convert worse, or did the segments' shares of
   traffic change?) shows it is a traffic-mix shift, not a conversion failure.
-- **Improve:** recovery on 20 Oct is checked in the Define measure.
+- **Improve:** recovery on 20 Oct is checked in the Define metric.
 - **Control:** the original investigation never built one. A traffic-share
   monitor is built and back-tested here, and it would have fired on the first
   incident day.
@@ -225,6 +225,7 @@ on-call workload. Fully worked.
 
 **Interview angle:** "You have 400 open bugs and capacity to fix 20. Which
 ones?"
+
 ---
 
 ## <u>Module 3 — Timeline & Events-and-Causal-Factors Reconstruction</u>
@@ -283,6 +284,7 @@ derived, recalled, or no time). Fully worked.
 
 **Interview angle:** "Tell me about an incident you investigated: what
 happened, in what order?"
+
 ---
 
 ## <u>Module 4 — Change Analysis & Kepner-Tregoe "Is / Is-Not"</u>
@@ -332,6 +334,7 @@ table. Fully worked.
 
 **Interview angle:** "The metric dropped for some users but not others. How
 do you narrow it down?"
+
 ---
 
 ## <u>Module 5 — The 5 Whys</u>
@@ -374,6 +377,7 @@ week. It is simulated so that the two planted causes are known.
 at "human error". Fully worked.
 
 **Interview angle:** "What are the limits of the 5 Whys?"
+
 ---
 
 ## <u>Module 6 — Fishbone (Ishikawa) Diagram</u>
@@ -417,6 +421,7 @@ measurement bone explains why.
 many branches were tested. Fully worked.
 
 **Interview angle:** "How do you make sure you haven't missed a cause?"
+
 ---
 
 ## <u>Module 7 — Apollo Root Cause Analysis & Cause Mapping</u>
@@ -468,6 +473,7 @@ three alarming headlines, and each turns out to need its own pair of causes:
 against the evidence. Fully worked.
 
 **Interview angle:** "What if there's more than one root cause?"
+
 ---
 
 ## <u>Module 8 — Fault Tree Analysis</u>
@@ -660,3 +666,19 @@ do you do first?"
 The Skill (saved outside this repo, in the user's general skills folder) and
 `12_capstone_investigator_test.md`: the test design, the rubric, per-case
 scores and the result.
+
+**Result**
+The Skill passed its pre-registered test: with the Skill, the assistant scored
+higher than without it in 6 of 6 new cases (the bar was 5), under two
+independent blind graders. The gain is in how the investigation is run (a
+named technique, a clean problem statement, a full control). Both versions
+found the planted cause every time, so the cases were too easy to show an
+effect on finding causes.
+
+**Version 1.1**
+Three changes from the test's findings were then made and re-tested on what
+they changed:
+- Mapping a combination as an action plus a condition worked on the late
+  deliveries case: 2 of 2 new runs did it, against 0 of 4 earlier reports.
+- More trigger phrases did not fix the one missed request.
+- A note to keep sections short did not shorten the reports.
